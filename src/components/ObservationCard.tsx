@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { Observation, SightingStatus } from '@/shared/types';
 
@@ -35,22 +36,22 @@ export function ObservationCard({
       case 'spotted':
         return {
           label: 'Visually Spotted',
-          bg: '#DCFCE7',
-          color: '#15803D',
+          bg: '#AEEED3',
+          color: '#164E47',
           icon: 'eye' as const,
         };
       case 'heard_not_seen':
         return {
           label: 'Heard Only',
-          bg: '#DBEAFE',
-          color: '#1D4ED8',
+          bg: '#E0F2EC',
+          color: '#287A74',
           icon: 'volume-medium' as const,
         };
       case 'unconfirmed':
         return {
           label: 'Unconfirmed',
-          bg: '#FEF3C7',
-          color: '#B45309',
+          bg: '#FFF8B0',
+          color: '#665103',
           icon: 'help-circle' as const,
         };
     }
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -192,10 +193,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   commonName: {
-    fontSize: 17,
+    fontFamily: Fonts.sans,
+    fontSize: 16,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   scientificName: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontStyle: 'italic',
   },
@@ -205,10 +209,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   scoreText: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontWeight: '700',
   },
   notesText: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontStyle: 'italic',
     lineHeight: 18,

@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { ChallengeCard } from '@/components/ChallengeCard';
+import { Fonts } from '@/constants/theme';
 import { challengeRepository } from '@/data/repositories/challengeRepository';
 import { observationRepository } from '@/data/repositories/observationRepository';
 import { useTheme } from '@/hooks/use-theme';
@@ -75,7 +76,7 @@ export default function ChallengesScreen() {
         <View style={[styles.rankCard, { backgroundColor: theme.primary }]}>
           <View style={styles.rankTopRow}>
             <View style={styles.trophyCircle}>
-              <Ionicons name="trophy" size={26} color="#B45309" />
+              <Ionicons name="trophy" size={26} color="#287A74" />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={styles.rankSubtitle}>Explorer Rank</Text>
@@ -147,40 +148,49 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#FEF3C7',
+    backgroundColor: '#FFF8B0',
     alignItems: 'center',
     justifyContent: 'center',
   },
   rankSubtitle: {
-    color: 'rgba(255, 255, 255, 0.75)',
+    fontFamily: Fonts.sans,
+    color: '#FFF8B0',
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '700',
     textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   rankTitle: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: '800',
+    letterSpacing: -0.4,
   },
   pointsBadge: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 248, 176, 0.22)',
+    borderColor: 'rgba(255, 248, 176, 0.45)',
+    borderWidth: 1,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
   },
   pointsNumber: {
-    color: '#FFFFFF',
+    fontFamily: Fonts.sans,
+    color: '#FFF8B0',
     fontSize: 20,
     fontWeight: '900',
   },
   pointsLabel: {
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontFamily: Fonts.sans,
+    color: '#FFF8B0',
     fontSize: 10,
     fontWeight: '700',
   },
   rankDescription: {
-    color: 'rgba(255, 255, 255, 0.9)',
+    fontFamily: Fonts.sans,
+    color: 'rgba(255, 255, 255, 0.92)',
     fontSize: 13,
     lineHeight: 18,
   },
@@ -195,12 +205,14 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   statNumber: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '800',
   },
   statLabel: {
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontFamily: Fonts.sans,
+    color: 'rgba(255, 255, 255, 0.85)',
     fontSize: 12,
   },
   listHeader: {
@@ -208,10 +220,13 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   sectionTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 17,
     fontWeight: '700',
+    letterSpacing: -0.3,
   },
   sectionSubtitle: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
   },
   listContent: {

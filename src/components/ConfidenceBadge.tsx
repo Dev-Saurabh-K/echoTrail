@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Fonts } from '@/constants/theme';
 import { ConfidenceLabel } from '@/shared/types';
 
 interface ConfidenceBadgeProps {
@@ -16,20 +17,20 @@ export function ConfidenceBadge({ confidence, score }: ConfidenceBadgeProps) {
 
   switch (confidence) {
     case 'high':
-      bgColor = '#DCFCE7';
-      textColor = '#15803D';
+      bgColor = '#AEEED3';
+      textColor = '#164E47';
       iconName = 'checkmark-circle';
       label = 'High Match';
       break;
     case 'moderate':
-      bgColor = '#FEF3C7';
-      textColor = '#B45309';
+      bgColor = '#FFF8B0';
+      textColor = '#665103';
       iconName = 'alert-circle';
       label = 'Moderate Match';
       break;
     case 'low':
-      bgColor = '#F3F4F6';
-      textColor = '#6B7280';
+      bgColor = '#E1EFEA';
+      textColor = '#287A74';
       iconName = 'information-circle';
       label = 'Low Confidence';
       break;
@@ -63,7 +64,9 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   text: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '700',
+    letterSpacing: -0.1,
   },
 });

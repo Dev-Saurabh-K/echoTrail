@@ -4,13 +4,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { AudioWaveform } from '@/components/AudioWaveform';
 import { ErrorAlert } from '@/components/ErrorAlert';
+import { Fonts } from '@/constants/theme';
 import { audioCaptureManager } from '@/core/audio';
 import { EchoTrailError, EchoTrailErrorCode } from '@/core/errors';
 import { useTheme } from '@/hooks/use-theme';
@@ -24,12 +25,16 @@ export default function RecordScreen() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const elapsedSecondsRef = useRef(0);
   const maxDuration = 10; // 10 seconds max target
   const minDuration = 3; // 3 seconds min threshold
 
   const handleStopRecording = React.useCallback(async (finalDuration?: number) => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    const duration = finalDuration !== undefined ? finalDuration : elapsedSeconds;
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    const duration = finalDuration !== undefined ? finalDuration : elapsedSecondsRef.current;
 
     if (duration < minDuration) {
       setErrorCode('AUDIO_TOO_SHORT');
@@ -70,11 +75,13 @@ export default function RecordScreen() {
         setErrorMessage(err.message || 'Failed to process audio.');
       }
     }
-  }, [elapsedSeconds]);
+  }, []);
 
   const startSession = React.useCallback(async () => {
-    setErrorCode(null);
-    setErrorMessage(null);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
 
     try {
       await audioCaptureManager.configureAudioMode();
@@ -82,14 +89,22 @@ export default function RecordScreen() {
       if (!hasPermission) return;
 
       audioCaptureManager.setRecordingActive(true);
+      setErrorCode(null);
+      setErrorMessage(null);
       setIsRecording(true);
+      elapsedSecondsRef.current = 0;
       setElapsedSeconds(0);
 
       // Start elapsed timer
       timerRef.current = setInterval(() => {
         setElapsedSeconds((prev) => {
           const next = prev + 1;
+          elapsedSecondsRef.current = next;
           if (next >= maxDuration) {
+            if (timerRef.current) {
+              clearInterval(timerRef.current);
+              timerRef.current = null;
+            }
             handleStopRecording(next);
             return maxDuration;
           }
@@ -115,13 +130,21 @@ export default function RecordScreen() {
 
     return () => {
       clearTimeout(timeout);
-      if (timerRef.current) clearInterval(timerRef.current);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
       audioCaptureManager.setRecordingActive(false);
     };
   }, [startSession]);
+
   const handleCancel = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
     audioCaptureManager.setRecordingActive(false);
+    setIsRecording(false);
     router.back();
   };
 
@@ -170,12 +193,12 @@ export default function RecordScreen() {
               <View
                 style={[
                   styles.pulseOuterCircle,
-                  { backgroundColor: isRecording ? '#DCFCE7' : theme.backgroundElement },
+                  { backgroundColor: isRecording ? '#AEEED3' : theme.backgroundElement },
                 ]}>
                 <View
                   style={[
                     styles.pulseInnerCircle,
-                    { backgroundColor: isRecording ? '#10B981' : theme.border },
+                    { backgroundColor: isRecording ? theme.primary : theme.border },
                   ]}>
                   <Ionicons name="mic" size={42} color="#FFFFFF" />
                 </View>
@@ -232,7 +255,8 @@ export default function RecordScreen() {
                   styles.stopIdentifyButton,
                   {
                     backgroundColor:
-                      elapsedSeconds >= minDuration ? theme.primary : '#9CA3AF',
+                      elapsedSeconds >= minDuration ? theme.primary : '#55A9A0',
+                    opacity: elapsedSeconds >= minDuration ? 1 : 0.65,
                   },
                   pressed && { opacity: 0.85 },
                 ]}
@@ -283,8 +307,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   topTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 17,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   content: {
     flex: 1,
@@ -316,11 +342,14 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   timerText: {
-    fontSize: 32,
+    fontFamily: Fonts.sans,
+    fontSize: 34,
     fontWeight: '800',
     fontVariant: ['tabular-nums'],
+    letterSpacing: -0.5,
   },
   instructions: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 20,
@@ -345,6 +374,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   milestoneText: {
+    fontFamily: Fonts.sans,
     fontSize: 11,
   },
   actionsContainer: {
@@ -360,15 +390,18 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   stopIdentifyButtonText: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   cancelTextButton: {
     alignItems: 'center',
     paddingVertical: 10,
   },
   cancelTextButtonLabel: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     fontWeight: '600',
   },

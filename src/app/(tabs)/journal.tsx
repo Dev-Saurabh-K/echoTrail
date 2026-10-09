@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { ObservationCard } from '@/components/ObservationCard';
 import { observationRepository } from '@/data/repositories/observationRepository';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { Observation, SightingStatus } from '@/shared/types';
 
@@ -190,6 +191,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   searchInput: {
+    fontFamily: Fonts.sans,
     flex: 1,
     fontSize: 14,
   },
@@ -207,8 +209,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   filterText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   listContent: {
     padding: 16,
@@ -225,15 +228,19 @@ const styles = StyleSheet.create({
     width: 72,
     height: 72,
     borderRadius: 36,
+    backgroundColor: '#AEEED3',
     alignItems: 'center',
     justifyContent: 'center',
   },
   emptyTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 18,
     fontWeight: '700',
     textAlign: 'center',
+    letterSpacing: -0.2,
   },
   emptyDescription: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     lineHeight: 20,
     textAlign: 'center',
@@ -248,6 +255,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   startRecordButtonText: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '700',

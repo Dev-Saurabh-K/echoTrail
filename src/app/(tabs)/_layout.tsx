@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function TabLayout() {
@@ -15,7 +16,10 @@ export default function TabLayout() {
           backgroundColor: theme.background,
         },
         headerTitleStyle: {
+          fontFamily: Fonts.sans,
           fontWeight: '700',
+          fontSize: 18,
+          letterSpacing: -0.3,
           color: theme.text,
         },
         headerShadowVisible: false,
@@ -30,8 +34,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: theme.primary,
         tabBarInactiveTintColor: theme.textSecondary,
         tabBarLabelStyle: {
+          fontFamily: Fonts.sans,
           fontSize: 12,
-          fontWeight: '600',
+          fontWeight: '700',
         },
       }}>
       <Tabs.Screen

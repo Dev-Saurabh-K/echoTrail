@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { ReferenceAudioPlayer } from '@/components/ReferenceAudioPlayer';
 import { speciesRepository } from '@/data/repositories/speciesRepository';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { Species } from '@/shared/types';
 
@@ -184,22 +185,26 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 4,
   },
   commonName: {
-    fontSize: 22,
+    fontFamily: Fonts.sans,
+    fontSize: 24,
     fontWeight: '800',
     textAlign: 'center',
+    letterSpacing: -0.4,
   },
   scientificName: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     fontStyle: 'italic',
     textAlign: 'center',
   },
   description: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     lineHeight: 20,
     textAlign: 'center',
@@ -209,9 +214,11 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   sectionTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 16,
     fontWeight: '700',
     paddingHorizontal: 4,
+    letterSpacing: -0.2,
   },
   infoCard: {
     borderRadius: 16,
@@ -225,10 +232,13 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   cardTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 15,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   cardBody: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     lineHeight: 20,
   },

@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { CURRENT_MODEL_VERSION } from '@/core/database';
 import { privacyManager, PrivacySettings } from '@/core/privacy';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function SettingsScreen() {
@@ -89,7 +90,7 @@ export default function SettingsScreen() {
       contentContainerStyle={styles.content}>
       {actionMessage && (
         <View style={styles.actionBanner}>
-          <Ionicons name="information-circle" size={18} color="#15803D" />
+          <Ionicons name="information-circle" size={18} color="#287A74" />
           <Text style={styles.actionBannerText}>{actionMessage}</Text>
         </View>
       )}
@@ -280,14 +281,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     padding: 12,
     borderRadius: 12,
   },
   actionBannerText: {
-    color: '#15803D',
+    fontFamily: Fonts.sans,
+    color: '#164E47',
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '700',
     flex: 1,
   },
   pledgeCard: {
@@ -302,10 +304,13 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   pledgeTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 15,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   pledgeText: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -313,9 +318,11 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   sectionTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 16,
     fontWeight: '700',
     paddingHorizontal: 4,
+    letterSpacing: -0.2,
   },
   card: {
     borderRadius: 16,
@@ -334,10 +341,12 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   settingLabel: {
+    fontFamily: Fonts.sans,
     fontSize: 15,
     fontWeight: '600',
   },
   settingSub: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     lineHeight: 16,
   },

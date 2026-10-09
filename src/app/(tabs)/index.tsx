@@ -11,6 +11,7 @@ import {
 import { CURRENT_MODEL_VERSION, getDatabase } from '@/core/database';
 import { PRELOADED_SAMPLES } from '@/data/samples';
 import { observationRepository } from '@/data/repositories/observationRepository';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { AudioSampleItem, Observation } from '@/shared/types';
 
@@ -82,7 +83,7 @@ export default function ExploreScreen() {
           },
         ]}>
         <View style={styles.heroBadge}>
-          <Ionicons name="sparkles" size={14} color="#FEF08A" />
+          <Ionicons name="sparkles" size={14} color="#FFF8B0" />
           <Text style={styles.heroBadgeText}>AI Audio Identifier</Text>
         </View>
 
@@ -341,13 +342,16 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#10B981',
+    backgroundColor: '#287A74',
   },
   statusTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontWeight: '700',
+    letterSpacing: -0.1,
   },
   statusSubtitle: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
   },
   heroCard: {
@@ -364,26 +368,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 248, 176, 0.22)',
+    borderColor: 'rgba(255, 248, 176, 0.45)',
+    borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,
     alignSelf: 'flex-start',
   },
   heroBadgeText: {
-    color: '#FFFFFF',
+    fontFamily: Fonts.sans,
+    color: '#FFF8B0',
     fontSize: 12,
     fontWeight: '700',
+    letterSpacing: 0.2,
   },
   heroTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 26,
     fontWeight: '800',
     color: '#FFFFFF',
+    letterSpacing: -0.5,
   },
   heroDescription: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     lineHeight: 20,
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: 'rgba(255, 255, 255, 0.92)',
   },
   recordButton: {
     flexDirection: 'row',
@@ -402,7 +413,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -410,13 +421,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   recordButtonMainText: {
-    fontSize: 17,
+    fontFamily: Fonts.sans,
+    fontSize: 16,
     fontWeight: '700',
-    color: '#1A4D2E',
+    color: '#287A74',
+    letterSpacing: -0.2,
   },
   recordButtonSubText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
-    color: '#4B5563',
+    color: '#4A6963',
   },
   journeyCard: {
     borderRadius: 16,
@@ -425,8 +439,10 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   sectionTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 17,
     fontWeight: '700',
+    letterSpacing: -0.3,
   },
   stepList: {
     gap: 14,
@@ -506,10 +522,13 @@ const styles = StyleSheet.create({
     color: '#4B5563',
   },
   sampleTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 15,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   sampleDesc: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     lineHeight: 17,
   },
@@ -520,19 +539,22 @@ const styles = StyleSheet.create({
     paddingTop: 4,
   },
   testPrompt: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontWeight: '700',
   },
   tagAmbiguous: {
+    fontFamily: Fonts.sans,
     fontSize: 11,
-    color: '#B45309',
-    backgroundColor: '#FEF3C7',
+    color: '#705803',
+    backgroundColor: '#FFF8B0',
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 6,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   tagSilent: {
+    fontFamily: Fonts.sans,
     fontSize: 11,
     color: '#DC2626',
     backgroundColor: '#FEE2E2',

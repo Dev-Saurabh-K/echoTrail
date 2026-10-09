@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { AudioWaveform } from './AudioWaveform';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 interface ReferenceAudioPlayerProps {
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -172,10 +173,13 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   title: {
+    fontFamily: Fonts.sans,
     fontSize: 15,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   description: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -208,11 +212,13 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   playButtonText: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   attribution: {
+    fontFamily: Fonts.sans,
     fontSize: 11,
     flex: 1,
     textAlign: 'right',

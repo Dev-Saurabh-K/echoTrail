@@ -7,36 +7,57 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
+export const BrandPalette = {
+  buttercup: '#FFF8B0',
+  mint: '#AEEED3',
+  teal: '#55A9A0',
+  deepTeal: '#287A74',
+} as const;
+
 export const Colors = {
   light: {
-    text: '#111827',
-    background: '#F9FAF7',
-    backgroundElement: '#EDF2EC',
-    backgroundSelected: '#DCE7DA',
-    textSecondary: '#4B5563',
-    primary: '#1A4D2E',
-    primaryLight: '#2E7D32',
-    accent: '#D97706',
+    text: '#14312B',
+    textSecondary: '#4A6963',
+    background: '#F6FAF8',
+    backgroundElement: '#E7F5EF',
+    backgroundSelected: '#D2F1E4',
+    primary: '#287A74',
+    primaryLight: '#55A9A0',
+    accent: '#FFF8B0',
+    accentDark: '#705803',
+    mint: '#AEEED3',
+    teal: '#55A9A0',
+    deepTeal: '#287A74',
     card: '#FFFFFF',
-    border: '#E5E7EB',
-    success: '#10B981',
-    warning: '#F59E0B',
-    danger: '#EF4444',
+    border: '#D0E6DE',
+    success: '#287A74',
+    successLight: '#AEEED3',
+    warning: '#997300',
+    warningLight: '#FFF8B0',
+    danger: '#DC2626',
+    dangerLight: '#FEE2E2',
   },
   dark: {
-    text: '#F3F4F6',
-    background: '#0D140F',
-    backgroundElement: '#1A241C',
-    backgroundSelected: '#27382B',
-    textSecondary: '#9CA3AF',
-    primary: '#34D399',
-    primaryLight: '#10B981',
-    accent: '#FBBF24',
-    card: '#141D16',
-    border: '#2A3B2D',
-    success: '#34D399',
-    warning: '#FBBF24',
+    text: '#EDF7F4',
+    textSecondary: '#8DAFA9',
+    background: '#0B1716',
+    backgroundElement: '#122523',
+    backgroundSelected: '#1B3733',
+    primary: '#55A9A0',
+    primaryLight: '#AEEED3',
+    accent: '#FFF8B0',
+    accentDark: '#FFF8B0',
+    mint: '#AEEED3',
+    teal: '#55A9A0',
+    deepTeal: '#287A74',
+    card: '#132725',
+    border: '#1F3E3A',
+    success: '#AEEED3',
+    successLight: '#163832',
+    warning: '#FFF8B0',
+    warningLight: '#2C270A',
     danger: '#F87171',
+    dangerLight: '#391616',
   },
 } as const;
 
@@ -44,26 +65,28 @@ export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
+    sans: 'System',
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
-  default: {
-    sans: 'normal',
+  android: {
+    sans: 'sans-serif',
     serif: 'serif',
-    rounded: 'normal',
+    rounded: 'sans-serif-medium',
+    mono: 'monospace',
+  },
+  default: {
+    sans: 'sans-serif',
+    serif: 'serif',
+    rounded: 'sans-serif',
     mono: 'monospace',
   },
   web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
+    sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+    rounded: 'system-ui, -apple-system, sans-serif',
+    mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
   },
 });
 

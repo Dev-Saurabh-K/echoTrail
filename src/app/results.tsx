@@ -20,6 +20,7 @@ import { privacyManager } from '@/core/privacy';
 import { challengeRepository } from '@/data/repositories/challengeRepository';
 import { observationRepository } from '@/data/repositories/observationRepository';
 import { speciesRepository } from '@/data/repositories/speciesRepository';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import {
   AudioInput,
@@ -187,7 +188,7 @@ export default function ResultsScreen() {
       {/* Uncertainty Messaging (FR-034, UC-02) */}
       {isAmbiguous ? (
         <View style={styles.uncertaintyBanner}>
-          <Ionicons name="warning" size={20} color="#B45309" />
+          <Ionicons name="warning" size={20} color="#6B5404" />
           <View style={{ flex: 1 }}>
             <Text style={styles.uncertaintyTitle}>Ambiguous Recording Notice</Text>
             <Text style={styles.uncertaintyText}>
@@ -304,20 +305,20 @@ export default function ResultsScreen() {
             style={[
               styles.statusOption,
               sightingStatus === 'spotted' && {
-                backgroundColor: '#DCFCE7',
-                borderColor: '#15803D',
+                backgroundColor: '#AEEED3',
+                borderColor: '#287A74',
               },
             ]}
             onPress={() => setSightingStatus('spotted')}>
             <Ionicons
               name="eye"
               size={18}
-              color={sightingStatus === 'spotted' ? '#15803D' : theme.textSecondary}
+              color={sightingStatus === 'spotted' ? '#164E47' : theme.textSecondary}
             />
             <Text
               style={[
                 styles.statusOptionLabel,
-                { color: sightingStatus === 'spotted' ? '#15803D' : theme.text },
+                { color: sightingStatus === 'spotted' ? '#164E47' : theme.text },
               ]}>
               Visually Spotted
             </Text>
@@ -327,8 +328,8 @@ export default function ResultsScreen() {
             style={[
               styles.statusOption,
               sightingStatus === 'heard_not_seen' && {
-                backgroundColor: '#DBEAFE',
-                borderColor: '#1D4ED8',
+                backgroundColor: '#E0F2EC',
+                borderColor: '#287A74',
               },
             ]}
             onPress={() => setSightingStatus('heard_not_seen')}>
@@ -336,13 +337,13 @@ export default function ResultsScreen() {
               name="volume-medium"
               size={18}
               color={
-                sightingStatus === 'heard_not_seen' ? '#1D4ED8' : theme.textSecondary
+                sightingStatus === 'heard_not_seen' ? '#287A74' : theme.textSecondary
               }
             />
             <Text
               style={[
                 styles.statusOptionLabel,
-                { color: sightingStatus === 'heard_not_seen' ? '#1D4ED8' : theme.text },
+                { color: sightingStatus === 'heard_not_seen' ? '#287A74' : theme.text },
               ]}>
               Heard Only
             </Text>
@@ -352,8 +353,8 @@ export default function ResultsScreen() {
             style={[
               styles.statusOption,
               sightingStatus === 'unconfirmed' && {
-                backgroundColor: '#FEF3C7',
-                borderColor: '#B45309',
+                backgroundColor: '#FFF8B0',
+                borderColor: '#876D04',
               },
             ]}
             onPress={() => setSightingStatus('unconfirmed')}>
@@ -361,13 +362,13 @@ export default function ResultsScreen() {
               name="help-circle"
               size={18}
               color={
-                sightingStatus === 'unconfirmed' ? '#B45309' : theme.textSecondary
+                sightingStatus === 'unconfirmed' ? '#665103' : theme.textSecondary
               }
             />
             <Text
               style={[
                 styles.statusOptionLabel,
-                { color: sightingStatus === 'unconfirmed' ? '#B45309' : theme.text },
+                { color: sightingStatus === 'unconfirmed' ? '#665103' : theme.text },
               ]}>
               Uncertain
             </Text>
@@ -394,7 +395,7 @@ export default function ResultsScreen() {
         {/* Unlocked Challenge Alert */}
         {unlockedChallengeTitle && (
           <View style={styles.challengeAlert}>
-            <Ionicons name="trophy" size={20} color="#B45309" />
+            <Ionicons name="trophy" size={20} color="#6B5404" />
             <Text style={styles.challengeAlertText}>
               Challenge Unlocked: &ldquo;{unlockedChallengeTitle}&rdquo;!
             </Text>
@@ -404,7 +405,7 @@ export default function ResultsScreen() {
         {/* Save Button */}
         {isSaved ? (
           <View style={styles.savedSuccessBox}>
-            <Ionicons name="checkmark-circle" size={20} color="#15803D" />
+            <Ionicons name="checkmark-circle" size={20} color="#287A74" />
             <Text style={styles.savedSuccessText}>Saved to Field Journal!</Text>
             <Pressable
               style={styles.viewJournalButton}
@@ -470,22 +471,25 @@ const styles = StyleSheet.create({
   uncertaintyBanner: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    backgroundColor: '#FEF3C7',
+    backgroundColor: '#FFF8B0',
     borderWidth: 1,
-    borderColor: '#FDE68A',
+    borderColor: '#E5DE8A',
     borderRadius: 14,
     padding: 14,
     gap: 10,
   },
   uncertaintyTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     fontWeight: '700',
-    color: '#92400E',
+    color: '#544102',
+    letterSpacing: -0.2,
   },
   uncertaintyText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     lineHeight: 17,
-    color: '#78350F',
+    color: '#473602',
     marginTop: 2,
   },
   modelNotice: {
@@ -498,6 +502,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   modelNoticeText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     flex: 1,
   },
@@ -505,8 +510,10 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   sectionHeading: {
+    fontFamily: Fonts.sans,
     fontSize: 17,
     fontWeight: '700',
+    letterSpacing: -0.3,
   },
   candidatesList: {
     gap: 10,
@@ -572,10 +579,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   statusOptionLabel: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     fontWeight: '700',
   },
   notesInput: {
+    fontFamily: Fonts.sans,
     borderWidth: 1,
     borderRadius: 12,
     padding: 12,
@@ -586,13 +595,14 @@ const styles = StyleSheet.create({
   challengeAlert: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FEF3C7',
+    backgroundColor: '#FFF8B0',
     padding: 12,
     borderRadius: 12,
     gap: 8,
   },
   challengeAlertText: {
-    color: '#92400E',
+    fontFamily: Fonts.sans,
+    color: '#544102',
     fontSize: 13,
     fontWeight: '700',
     flex: 1,
@@ -606,20 +616,23 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   saveButtonText: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   savedSuccessBox: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     padding: 14,
     borderRadius: 14,
   },
   savedSuccessText: {
-    color: '#15803D',
+    fontFamily: Fonts.sans,
+    color: '#164E47',
     fontSize: 14,
     fontWeight: '700',
   },
@@ -628,7 +641,8 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   viewJournalButtonText: {
-    color: '#15803D',
+    fontFamily: Fonts.sans,
+    color: '#287A74',
     fontSize: 13,
     fontWeight: '700',
   },

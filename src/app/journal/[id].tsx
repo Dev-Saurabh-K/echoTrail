@@ -15,6 +15,7 @@ import {
 import { AudioWaveform } from '@/components/AudioWaveform';
 import { ConfidenceBadge } from '@/components/ConfidenceBadge';
 import { observationRepository } from '@/data/repositories/observationRepository';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { Observation, SightingStatus } from '@/shared/types';
 
@@ -133,7 +134,7 @@ export default function ObservationDetailScreen() {
       contentContainerStyle={styles.content}>
       {isSavedBanner && (
         <View style={styles.savedBanner}>
-          <Ionicons name="checkmark-circle" size={18} color="#15803D" />
+          <Ionicons name="checkmark-circle" size={18} color="#287A74" />
           <Text style={styles.savedBannerText}>Changes saved successfully!</Text>
         </View>
       )}
@@ -227,20 +228,20 @@ export default function ObservationDetailScreen() {
             style={[
               styles.statusOption,
               status === 'spotted' && {
-                backgroundColor: '#DCFCE7',
-                borderColor: '#15803D',
+                backgroundColor: '#AEEED3',
+                borderColor: '#287A74',
               },
             ]}
             onPress={() => setStatus('spotted')}>
             <Ionicons
               name="eye"
               size={16}
-              color={status === 'spotted' ? '#15803D' : theme.textSecondary}
+              color={status === 'spotted' ? '#164E47' : theme.textSecondary}
             />
             <Text
               style={[
                 styles.statusOptionLabel,
-                { color: status === 'spotted' ? '#15803D' : theme.text },
+                { color: status === 'spotted' ? '#164E47' : theme.text },
               ]}>
               Spotted
             </Text>
@@ -250,20 +251,20 @@ export default function ObservationDetailScreen() {
             style={[
               styles.statusOption,
               status === 'heard_not_seen' && {
-                backgroundColor: '#DBEAFE',
-                borderColor: '#1D4ED8',
+                backgroundColor: '#E0F2EC',
+                borderColor: '#287A74',
               },
             ]}
             onPress={() => setStatus('heard_not_seen')}>
             <Ionicons
               name="volume-medium"
               size={16}
-              color={status === 'heard_not_seen' ? '#1D4ED8' : theme.textSecondary}
+              color={status === 'heard_not_seen' ? '#287A74' : theme.textSecondary}
             />
             <Text
               style={[
                 styles.statusOptionLabel,
-                { color: status === 'heard_not_seen' ? '#1D4ED8' : theme.text },
+                { color: status === 'heard_not_seen' ? '#287A74' : theme.text },
               ]}>
               Heard Only
             </Text>
@@ -273,22 +274,22 @@ export default function ObservationDetailScreen() {
             style={[
               styles.statusOption,
               status === 'unconfirmed' && {
-                backgroundColor: '#FEF3C7',
-                borderColor: '#B45309',
+                backgroundColor: '#FFF8B0',
+                borderColor: '#876D04',
               },
             ]}
             onPress={() => setStatus('unconfirmed')}>
             <Ionicons
               name="help-circle"
               size={16}
-              color={status === 'unconfirmed' ? '#B45309' : theme.textSecondary}
+              color={status === 'unconfirmed' ? '#665103' : theme.textSecondary}
             />
             <Text
               style={[
                 styles.statusOptionLabel,
-                { color: status === 'unconfirmed' ? '#B45309' : theme.text },
+                { color: status === 'unconfirmed' ? '#665103' : theme.text },
               ]}>
-              Unconfirmed
+              Uncertain
             </Text>
           </Pressable>
         </View>
@@ -383,13 +384,14 @@ const styles = StyleSheet.create({
   savedBanner: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#DCFCE7',
+    backgroundColor: '#AEEED3',
     padding: 12,
     borderRadius: 12,
     gap: 8,
   },
   savedBannerText: {
-    color: '#15803D',
+    fontFamily: Fonts.sans,
+    color: '#164E47',
     fontSize: 13,
     fontWeight: '700',
   },
@@ -405,10 +407,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   commonName: {
+    fontFamily: Fonts.sans,
     fontSize: 22,
     fontWeight: '800',
+    letterSpacing: -0.3,
   },
   scientificName: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     fontStyle: 'italic',
   },
@@ -421,9 +426,11 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   timestampText: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
   },
   modelRefText: {
+    fontFamily: Fonts.sans,
     fontSize: 11,
   },
   audioCard: {
@@ -440,8 +447,10 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   audioCardTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 14,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   playAudioButton: {
     flexDirection: 'row',
@@ -452,6 +461,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   playAudioButtonText: {
+    fontFamily: Fonts.sans,
     color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '700',
@@ -463,10 +473,13 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   sectionTitle: {
+    fontFamily: Fonts.sans,
     fontSize: 16,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   sectionSubtitle: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -488,6 +501,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statusOptionLabel: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     fontWeight: '700',
   },

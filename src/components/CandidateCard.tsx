@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Fonts } from '@/constants/theme';
 import { ConfidenceBadge } from './ConfidenceBadge';
 import { useTheme } from '@/hooks/use-theme';
 import { BirdPrediction, Species } from '@/shared/types';
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rankText: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontWeight: '800',
   },
@@ -138,14 +140,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   commonName: {
+    fontFamily: Fonts.sans,
     fontSize: 16,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   scientificName: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontStyle: 'italic',
   },
   explanation: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -157,6 +163,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   hintText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     lineHeight: 16,
     flex: 1,
@@ -169,6 +176,7 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   guideLinkText: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     fontWeight: '600',
   },

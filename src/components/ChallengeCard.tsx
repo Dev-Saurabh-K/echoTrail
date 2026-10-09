@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Fonts } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { ChallengeWithProgress } from '@/shared/types';
 
@@ -50,13 +51,13 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
           style={[
             styles.iconBox,
             {
-              backgroundColor: challenge.isCompleted ? '#DCFCE7' : theme.backgroundElement,
+              backgroundColor: challenge.isCompleted ? '#AEEED3' : theme.backgroundElement,
             },
           ]}>
           <Ionicons
             name={getIconName(challenge.iconName)}
             size={22}
-            color={challenge.isCompleted ? '#15803D' : theme.primary}
+            color={challenge.isCompleted ? '#287A74' : theme.primary}
           />
         </View>
 
@@ -73,18 +74,18 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
           style={[
             styles.pointsBadge,
             {
-              backgroundColor: challenge.isCompleted ? '#FEF3C7' : theme.backgroundElement,
+              backgroundColor: challenge.isCompleted ? '#FFF8B0' : theme.backgroundElement,
             },
           ]}>
           <Ionicons
             name="trophy"
             size={12}
-            color={challenge.isCompleted ? '#B45309' : theme.accent}
+            color={challenge.isCompleted ? '#705803' : theme.primary}
           />
           <Text
             style={[
               styles.pointsText,
-              { color: challenge.isCompleted ? '#B45309' : theme.text },
+              { color: challenge.isCompleted ? '#705803' : theme.text },
             ]}>
             +{challenge.points}
           </Text>
@@ -99,7 +100,7 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
           </Text>
           {challenge.isCompleted ? (
             <View style={styles.completedBadge}>
-              <Ionicons name="checkmark-circle" size={14} color="#15803D" />
+              <Ionicons name="checkmark-circle" size={14} color="#287A74" />
               <Text style={styles.completedText}>Completed</Text>
             </View>
           ) : (
@@ -114,7 +115,7 @@ export function ChallengeCard({ challenge }: ChallengeCardProps) {
             style={[
               styles.progressBarFill,
               {
-                backgroundColor: challenge.isCompleted ? '#10B981' : theme.primary,
+                backgroundColor: challenge.isCompleted ? '#287A74' : '#55A9A0',
                 width: `${progressPercent}%`,
               },
             ]}
@@ -153,10 +154,13 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   title: {
-    fontSize: 16,
+    fontFamily: Fonts.sans,
+    fontSize: 15,
     fontWeight: '700',
+    letterSpacing: -0.2,
   },
   description: {
+    fontFamily: Fonts.sans,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -169,6 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   pointsText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     fontWeight: '800',
   },
@@ -181,10 +186,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   progressText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     fontWeight: '600',
   },
   percentText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
   },
   completedBadge: {
@@ -193,9 +200,10 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   completedText: {
+    fontFamily: Fonts.sans,
     fontSize: 12,
     fontWeight: '700',
-    color: '#15803D',
+    color: '#287A74',
   },
   progressBarBg: {
     height: 6,
