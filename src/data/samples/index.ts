@@ -1,0 +1,58 @@
+import { AudioSampleItem } from '@/shared/types';
+
+export const PRELOADED_SAMPLES: AudioSampleItem[] = [
+  {
+    id: 'sample_robin_dawn',
+    title: 'Dawn Carol — American Robin',
+    speciesId: 'robin_american',
+    durationSeconds: 6.2,
+    description: 'Crisp morning caroling recorded at woodland edge. Clear melodic whistles.',
+    isBundled: true,
+    simulatedNoiseLevel: 'low',
+  },
+  {
+    id: 'sample_chickadee_call',
+    title: 'Flock Alert — Black-capped Chickadee',
+    speciesId: 'chickadee_black_capped',
+    durationSeconds: 5.4,
+    description: 'Classic "chick-a-dee-dee-dee" contact and predator alert call sequence.',
+    isBundled: true,
+    simulatedNoiseLevel: 'low',
+  },
+  {
+    id: 'sample_cardinal_whistle',
+    title: 'Ringing Whistle — Northern Cardinal',
+    speciesId: 'cardinal_northern',
+    durationSeconds: 7.1,
+    description: 'Loud, penetrating "cheer, cheer, cheer" territorial song from treetops.',
+    isBundled: true,
+    simulatedNoiseLevel: 'low',
+  },
+  {
+    id: 'sample_song_sparrow_trill',
+    title: 'Melodic Trill — Song Sparrow',
+    speciesId: 'song_sparrow',
+    durationSeconds: 5.8,
+    description: 'Sweet introductory notes leading into a vibrant buzz and complex trill.',
+    isBundled: true,
+    simulatedNoiseLevel: 'low',
+  },
+  {
+    id: 'sample_noisy_wind_distance',
+    title: 'Distant Call with Wind Buffeting',
+    speciesId: 'blue_jay',
+    durationSeconds: 8.0,
+    description: 'Challenging real-world field recording with background wind gusts (demonstrates uncertainty handling).',
+    isBundled: true,
+    simulatedNoiseLevel: 'high',
+  },
+  {
+    id: 'sample_silent_ambient',
+    title: 'Silent Ambient Rustling (No Bird)',
+    speciesId: 'none',
+    durationSeconds: 4.5,
+    description: 'Only light breeze and distant rustle with no bird calls (demonstrates silence detection and recoverable error).',
+    isBundled: true,
+    simulatedNoiseLevel: 'silent',
+  },
+];
